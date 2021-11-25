@@ -1514,3 +1514,49 @@ ls -R /usr (esto es infinito asi que te dejo aqui el comando)
  
 [ferhandel@webminal.org ~]$cd /tmp                                
 [ferhandel@webminal.org tmp]$
+
+11. Verificar que el directorio actual ha cambiado.
+
+[ferhandel@webminal.org tmp]$pwd
+/tmp
+
+12. Mostrar el día y la hora actual. 
+
+[ferhandel@webminal.org tmp]$date   
+Thu Nov 25 20:03:49 CET 2021 
+
+13. Con un solo comando posicionarse en el directorio $HOME.
+
+[ferhandel@webminal.org tmp]$cd /home
+
+[ferhandel@webminal.org home]$
+
+14. Verificar que se está en él.
+
+[ferhandel@webminal.org home]$pwd   
+/home                               
+
+15. Listar todos los ficheros del directorio HOME mostrando su número de inodo.
+
+ls -i386
+
+16. Borrar todos los archivos y directorios visibles de vuestro directorio PRUEBA.
+
+[ferhandel@webminal.org ~]$rm -rf PRUEBA/*
+
+17. Crear los directorios dir1, dir2 y dir3 en el directorio PRUEBA. Dentro de dir1 crear el directorio dir11. 
+Dentro del directorio dir3 crear el directorio dir31. 
+Dentro del directorio dir31, crear los directorios dir311 y dir312. 18. 
+Copiar el archivo /etc/motd a un archivo llamado mensaje de vuestro directorio PRUEBA.
+
+[ferhandel@webminal.org ~]$cd PRUEBA
+[ferhandel@webminal.org PRUEBA]$
+[ferhandel@webminal.org PRUEBA]$mkdir 
+dir1
+[ferhandel@webminal.org PRUEBA]$mkdir 
+dir2
+[ferhandel@webminal.org PRUEBA]$mkdir 
+dir3
+
+
+
