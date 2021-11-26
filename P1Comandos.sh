@@ -1546,8 +1546,8 @@ ls -i386
 
 17. Crear los directorios dir1, dir2 y dir3 en el directorio PRUEBA. Dentro de dir1 crear el directorio dir11. 
 Dentro del directorio dir3 crear el directorio dir31. 
-Dentro del directorio dir31, crear los directorios dir311 y dir312. 18. 
-Copiar el archivo /etc/motd a un archivo llamado mensaje de vuestro directorio PRUEBA.
+Dentro del directorio dir31, crear los directorios dir311 y dir312. 
+
 
 [ferhandel@webminal.org ~]$cd PRUEBA
 [ferhandel@webminal.org PRUEBA]$
@@ -1557,6 +1557,33 @@ dir1
 dir2
 [ferhandel@webminal.org PRUEBA]$mkdir 
 dir3
+[ferhandel@webminal.org ~]$cd dir1/
+[ferhandel@webminal.org dir1]$mkdir -v dir11/                                                                                        
+mkdir: created directory ‘dir11/’                                                                                                    
+[ferhandel@webminal.org dir1]$ls                                                                                                     
+dir11
+[ferhandel@webminal.org ~]$cd dir3/                                                                                                  
+[ferhandel@webminal.org dir3]$mkdir -v dir31/                                                                                        
+mkdir: created directory ‘dir31/’ 
+[ferhandel@webminal.org ~]$cd dir31/
+[ferhandel@webminal.org dir31]$mkdir -v dir311/                                                                                      
+mkdir: created directory ‘dir311/’                                                                                                   
+[ferhandel@webminal.org dir31]$mkdir -v dir312/                                                                                      
+mkdir: created directory ‘dir312/’ 
+
+18. Copiar el archivo /etc/motd a un archivo llamado mensaje de vuestro directorio PRUEBA.
+
+[ferhandel@webminal.org dir31]$sudo touch /etc/motd/PRUEBA/mensaje
+
+19. Copiar mensaje en dir1, dir2 y dir3. 
+
+[ferhandel@webminal.org ~]$cd PRUEBA
+[ferhandel@webminal.org PRUEBA]$cp mensaje dir1/mensaje
+[ferhandel@webminal.org PRUEBA]$cp mensaje dir2/mensaje
+[ferhandel@webminal.org PRUEBA]$cp mensaje dir3/mensaje
+
+
+
 
 
 
