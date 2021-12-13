@@ -1784,11 +1784,28 @@ find /home/ubuntu -exec file --mime-type -0 '{}' ;
 
 mkdir uno chmod u=rw,g=rw,o= uno ls -ld uno
 
-70. Crear el directorio uno1 dentro del directorio creado en el ejercicio anterior con todos lo permisos para el usuario, ninguno para los usuarios del grupo y permiso de escritura para el resto de usuarios. 
+70. Crear el directorio uno1 dentro del directorio creado en el ejercicio anterior con todos lo permisos para el usuario, ninguno para los usuarios del grupo y permiso de escritura para el resto de usuarios.
+
+chmod u=rwx,g=rwx,o= uno mkdir uno/uno1 chmod 
+u=rwx,g=,o=w uno/uno1 ls -ld uno/uno1
+
 71. Copiar todos los ficheros propiedad de un usuario conocido que acaben en un número en el directorio menus. 
-72. Visualiza con la orden who la relación de usuarios conectados y sus terminales. Mediante la orden cat, crea un pequeño mensaje desde tu consola y redirígelo a uno de los terminales conectados.. 
+
+find /home/usuario2 -type f -regex ".*[0-9]" -exec cp -r '{}' PRUEBA/correo/menus/ ;
+
+72. Visualiza con la orden who la relación de usuarios conectados y sus terminales. Mediante la orden cat, crea un pequeño mensaje desde tu consola y redirígelo a uno de los terminales conectados.
+
+(consultar mas tarde)
+
 73. Crea un archivo de tamaño 0 
-74. Visualiza el archivo /etc/motd, que contiene el "mensaje del día". 75. Utilizando de entrada la información de los usuarios conectados al sistema, guardar, ordenadas por el campo hora, las líneas correspondientes al usuario que se desee en el archivo persona. 
+
+touch archivo
+
+74. Visualiza el archivo /etc/motd, que contiene el "mensaje del día". 
+
+
+
+75. Utilizando de entrada la información de los usuarios conectados al sistema, guardar, ordenadas por el campo hora, las líneas correspondientes al usuario que se desee en el archivo persona. 
 76. Crear el directorio carpeta debajo del directorio PRUEBA. Quitarle todos los permisos de lectura. A continuación, buscar todos los directorios que cuelguen del directorio propio y guardarlos en el archivo direc. 77. Volver a realizar la segunda parte del ejercicio anterior, pero redireccionando los errores al fichero malos. Comprobar la información del fichero malos. 
 78. Añadir al fichero direc la lista de todos los ficheros ordinarios que cuelguen de /etc. 
 79. Añadir al archivo nuevalista el/los nombre/s de el/los fichero/s del directorio PRUEBA que contengan en su nombre la cadena "ai", añadiendo el posible error al fichero malos. 
