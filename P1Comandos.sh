@@ -1582,6 +1582,44 @@ mkdir: created directory ‘dir312/’
 [ferhandel@webminal.org PRUEBA]$cp mensaje dir2/mensaje
 [ferhandel@webminal.org PRUEBA]$cp mensaje dir3/mensaje
 
+20. Comprobar el ejercicio anterior mediante un solo comando. 
+(A partir de aquí no funciona webminal)
+
+cd PRUEBA
+
+ls -R PRUEBA
+
+21. Copiar los archivos del directorio rc.d que se encuentra en /etc al directorio dir31.
+
+cp -r /etc/rc.d dir31
+
+22. Copiar en el directorio dir311 los archivos de /bin que tengan una a como segunda letra y su nombre tenga cuatro letras. 
+
+cp -r /bin/?a?? PRUEBA/dir3/dir31/dir311
+
+23. Copiar el directorio de otro usuario y sus subdirectorios debajo de dir11 (incluido el propio directorio).
+
+sudo cp -r ../usuario2 PRUEBA/dir1/dir11
+
+24. Mover el directorio dir31 y sus subdirectorios debajo de dir2. 
+
+mv PRUEBA/dir3/dir31 PRUEBA/dir2
+
+25. Mostrar por pantalla los archivos ordinarios del directorio HOME y sus subdirectorios. 
+
+ls -R $HOME 
+
+26. Ocultar el archivo mensaje del directorio dir3. 
+
+mv PRUEBA/dir3/mensaje PRUEBA/dir3/.mensaje 
+
+27. Borrar los archivos y directorios de dir1, incluido el propio directorio. 28. Copiar al directorio dir312 los ficheros del directorio /dev que empiecen por t, acaben en una letra que vaya de la a a la b y tengan cinco letras en su nombre. 
+
+rm -rf PRUEBA/dir1
+
+29. Borrar los archivos de dir312 que no acaben en b y tengan una q como cuarta letra.
+
+
 
 
 
