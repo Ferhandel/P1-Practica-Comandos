@@ -1619,6 +1619,212 @@ rm -rf PRUEBA/dir1
 
 29. Borrar los archivos de dir312 que no acaben en b y tengan una q como cuarta letra.
 
+rm -r PRUEBA/dir2/dir31/dir312/???q[^b]
+
+30. Mover el directorio dir312 debajo de dir3. 
+
+mv PRUEBA/dir2/dir31/dir312 PRUEBA/dir3
+
+31. Crear un enlace simbólico al directorio dir1 dentro del directorio dir3 llamado enlacedir1.
+
+ln -s /home/windows/PRUEBA/dir1 PRUEBA/dir3/enlacedir1
+
+32. Posicionarse en dir3 y, empleando el enlace creado en el ejercicio anterior, crear el directorio nuevo1 dentro de dir1.
+
+cd dir3 mkdir enlacedir1/nuevo1
+
+33. Utilizando el enlace creado copiar los archivos que empiecen por u del directorio /bin en directorio nuevo1.
+
+cp -r /bin/u* enlacedir1/nuevo1/
+
+34. Crear dos enlaces duros del fichero fich1, llamarlo enlace, en los directorios dir1 y dir2. 
+
+ln fich1 dir1/enlace ln fich1 dir2/enlace
+
+35. Borrar el archivo fich1 y copiar enlace en dir3.
+
+-rm fich1 cp dir1/enlace dir3/
+
+36. Crear un enlace simbólico (llamado enlafich1) al fichero enlace de dir2 en dir1. 
+
+ln -s /home/windows/PRUEBA/dir2
+/home/windows/PRUEBA/dir1/enlafich1
+
+37. Posicionarse en dir1 y, mediante el enlace creado, copiar el archivo fichl dentro de dir311. 
+
+cd dir1 cp enlafich1 ../dir2/dir31/dir311/fich1
+
+38. Seguir en dir1 y, mediante el enlace creado, sacar por pantalla las líneas que tiene el archivo fich1. 
+
+cat fich1
+
+39. Borrar el fichero fich1 de dir2 
+
+rm dir2/fich1
+
+40. Borrar todos los archivos y directorios creados durante los ejercicios. 
+
+rm -r *
+
+41. Crear el directorio dir2 y dir3 en el directorio PRUEBA ¿Cuáles son los actuales permisos del directorio dir2? 
+
+mkdir dir1 mkdir dir2 ls -l
+
+42. Utilizando la notación simbólica, eliminar todos los permisos de escritura (propietario, grupo, otros) del directorio dir2. 
+
+chmod 555 dir2
+
+43. Utilizando la notación octal, eliminar el permiso de lectura del directorio dir2, al resto de los usuarios. 
+
+chmod 551 dir2
+
+44. ¿Cuáles son ahora los permisos asociados a dir2? 
+
+ls -l
+
+45. Crear bajo dir2, un directorio llamado dir2l.
+
+mkdir dir2/dir21
+
+46. Concederse a sí mismo permiso de escritura en el directorio dir2 e intentar de nuevo el paso anterior. 
+
+chmod 751 dir2 mkdir dir2/dir21
+
+47. ¿Cuáles son los valores por omisión asignados a los archivos? 48. Cambiar el directorio actual al directorio dir3. Imprimir su trayectoria completa para verificar el cambio. 
+
+ls -l dir2
+
+49. ¿Cuáles son los permisos asignados en su momento a este directorio? 
+
+ls -lR
+
+50. Establecer mediante el comando umask (buscar este comando) los siguientes valores por omisión: rwxr--r-- para los directorios y rw-r--r-- para los archivos ordinarios. 
+
+(consultar mas adelante)
+
+51. Crear cuatro nuevos directorios llamados dira, dirb, dirc, y dird bajo el directorio actual. 
+
+mkdir dira mkdir dirb mkdir dirc mkdir dird
+
+52. Comprobar los permisos de acceso de los directorios recién creados para comprobar el funcionamiento del comando umask. 
+
+ls -l
+
+53. Crear el fichero uno . Quitarle todos los permisos de lectura. Comprobarlo. Intentar borrar dicho fichero. 
+
+touch uno chmod a-r uno ls -l rm uno
+
+54. Quitarle todos los permisos de paso al directorio dir2 y otorgarle todos los demás.
+
+chmod = dir2 chmod o=rwx dir2
+
+55. Crear en el directorio propio: 
+El directorio carpeta1 con los tres permisos para el propietario, dentro de él fich1 con lectura y escritura para todos y fich2 con lectura y escritura para el propietario y solo lectura para el resto. 
+El directorio carpeta2 con todos los permisos para el propietario y lectura y ejecución para los del mismo grupo. 
+Dentro file1 con lectura y escritura para el propietario y los del grupo y file2 con los mismos para el propietario y solo lectura para el grupo.
+
+mkdir carpeta1 chmod u=rwx,g=,o= carpeta1 touch carpeta1/fich1
+touch carpeta1/fich2 chmod = carpeta1/fich1 chmod = carpeta1/fich2 chmod o=rw carpeta1/fich1 ls -l
+mkdir carpeta2 chmod u=rwx,g=rx,o= carpeta2 touch carpeta2/file1 touch carpeta2/file2 chmod = carpeta2/file2 chmod = carpeta2/file1 chmod u=rw,g=rw carpeta2/file1 chmod u=rw,g=r carpeta2/file2 ls -l
+
+56. Desde otro usuario probar todas las operaciones que se pueden hacer en los ficheros y directorios creados.
+
+ls -lR 
+
+57. Visualizar la trayectoria completa del directorio actual. Crear dos directorios llamados correo y fuentes debajo del directorio actual.
+
+mkdir correo mkdir fuentes
+
+58. Posicionarse en el directorio fuentes y crear los directorios dir1, dir2, dir3. 
+
+cd fuentes mkdir dir1 mkdir dir2 mkdir dir3
+
+59. Crear el directorio menus bajo correo sin moverse del directorio actual. 
+
+mkdir ../correo/menus
+
+60. Posicionarse en el directorio HOME. Borrar los directorios que cuelgan de fuentes que acaben en un número que no sea el 1. 
+
+cd $HOME
+rm -r fuentes/ 
+
+61. Ver si existe el archivo tty2 en el directorio dev. En caso de que exista, ver su fecha de creación o actualización. 
+
+find PRUEBA/fuentes -type d -name "tty2" -exec ls -l {} ;
+
+62. Ver los permisos que tienen los archivos que empiecen por tt del directorio /dev. 
+
+ls -l /dev/tt*
+
+63. Visualizar la lista de los archivos ordinarios que están en el directorio /usr/bin. 
+
+find /usr/bin -type d -name "*" -exec ls -l {} ; 
+
+64. Visualizar la lista de todos los directorios que cuelgan del raíz. 
+
+find / -type d -name "*" -exec ls {} ;
+
+65. Visualizar la lista de todos los ficheros que pertenezcan a root. 
+
+find / -user root -type f
+
+66. Visualizar la lista de todos los ficheros .h del directorio /usr/include. 
+
+find /usr/include -type f -regex ".*.h"
+
+67. Ejecutar todos los comandos que empiecen por ls del directorio /bin.
+
+ls /bin/ls*
+
+68. Visualizar de qué tipo son todos y cada uno de ficheros de todo el árbol del sistema propiedad de un usuario conocido. 
+
+find /home/ubuntu -exec file --mime-type -0 '{}' ;
+
+69. Crear el directorio uno en el directorio HOME con permiso de escritura y paso para el propietario, de lectura y paso para los usuarios de su mismo grupo y ningún permiso para el resto de usuarios.
+
+mkdir uno chmod u=rw,g=rw,o= uno ls -ld uno
+
+70. Crear el directorio uno1 dentro del directorio creado en el ejercicio anterior con todos lo permisos para el usuario, ninguno para los usuarios del grupo y permiso de escritura para el resto de usuarios. 
+71. Copiar todos los ficheros propiedad de un usuario conocido que acaben en un número en el directorio menus. 
+72. Visualiza con la orden who la relación de usuarios conectados y sus terminales. Mediante la orden cat, crea un pequeño mensaje desde tu consola y redirígelo a uno de los terminales conectados.. 
+73. Crea un archivo de tamaño 0 
+74. Visualiza el archivo /etc/motd, que contiene el "mensaje del día". 75. Utilizando de entrada la información de los usuarios conectados al sistema, guardar, ordenadas por el campo hora, las líneas correspondientes al usuario que se desee en el archivo persona. 
+76. Crear el directorio carpeta debajo del directorio PRUEBA. Quitarle todos los permisos de lectura. A continuación, buscar todos los directorios que cuelguen del directorio propio y guardarlos en el archivo direc. 77. Volver a realizar la segunda parte del ejercicio anterior, pero redireccionando los errores al fichero malos. Comprobar la información del fichero malos. 
+78. Añadir al fichero direc la lista de todos los ficheros ordinarios que cuelguen de /etc. 
+79. Añadir al archivo nuevalista el/los nombre/s de el/los fichero/s del directorio PRUEBA que contengan en su nombre la cadena "ai", añadiendo el posible error al fichero malos. 
+80. Sacar por pantalla únicamente el tiempo (buscar comando time) que tarda en ejecutarse el comando who. 
+81. Sacar por pantalla un listado completo (buscar comando ps) de los procesos que está realizando el usuario root. 
+82. Crear el archivo proceso con los procesos que no tienen ningún terminal asignado. 
+83. Añadir al fichero anterior la fecha actual y la trayectoria completa del directorio actual.
+84. Sacar por pantalla el listado de todos los usuarios conectados ordenados por número de proceso asignado. 
+85. Averiguar cuál es la actividad actual del sistema. Para ello visualice un listado completo del estado de todos los procesos que se están ejecutando en el sistema. 
+86. Obtener un listado con los siguientes datos de los procesos de su shell actual. 
+87. Mostrar cuantos usuarios tiene registrados el sistema (el registro de usuarios está en el archivo /etc/passwd) 
+88. Mostrar cuántos usuarios tiene registrados el sistema y que utilizan el intérprete bash (debe aparecer al final de la línea /bin/bash o similar) 89. Mostrar cuantos usuarios hay conectados 
+90. Mostrar las líneas, de un archivo de texto, empiecen por L (mayúscula o minúscula) 
+91. Contar las líneas, del ejemplo anterior 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
