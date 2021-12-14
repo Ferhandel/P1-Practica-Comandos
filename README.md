@@ -1,3 +1,2 @@
 # P1-Practica-Comandos
-Ejercicio para practicar comandos.
-Primer commit hecho.
+Ejercicios para practicar los comandos de linux. 
