@@ -1700,7 +1700,7 @@ ls -lR
 
 50. Establecer mediante el comando umask (buscar este comando) los siguientes valores por omisión: rwxr--r-- para los directorios y rw-r--r-- para los archivos ordinarios. 
 
-(consultar mas adelante)
+
 
 51. Crear cuatro nuevos directorios llamados dira, dirb, dirc, y dird bajo el directorio actual. 
 
@@ -1795,7 +1795,7 @@ find /home/usuario2 -type f -regex ".*[0-9]" -exec cp -r '{}' PRUEBA/correo/menu
 
 72. Visualiza con la orden who la relación de usuarios conectados y sus terminales. Mediante la orden cat, crea un pequeño mensaje desde tu consola y redirígelo a uno de los terminales conectados.
 
-(consultar mas tarde)
+
 
 73. Crea un archivo de tamaño 0 
 
@@ -1803,22 +1803,75 @@ touch archivo
 
 74. Visualiza el archivo /etc/motd, que contiene el "mensaje del día". 
 
-
+cat /etc/motd
 
 75. Utilizando de entrada la información de los usuarios conectados al sistema, guardar, ordenadas por el campo hora, las líneas correspondientes al usuario que se desee en el archivo persona. 
-76. Crear el directorio carpeta debajo del directorio PRUEBA. Quitarle todos los permisos de lectura. A continuación, buscar todos los directorios que cuelguen del directorio propio y guardarlos en el archivo direc. 77. Volver a realizar la segunda parte del ejercicio anterior, pero redireccionando los errores al fichero malos. Comprobar la información del fichero malos. 
+
+who | grep $USER | sort -k 4 > persona
+
+76. Crear el directorio carpeta debajo del directorio PRUEBA. Quitarle todos los permisos de lectura. A continuación, buscar todos los directorios que cuelguen del directorio propio y guardarlos en el archivo direc. 
+
+mkdir -p carpeta/PRUEBA 
+chmod a-r carpeta 
+find ~ -type d > direc
+
+77. Volver a realizar la segunda parte del ejercicio anterior, pero redireccionando los errores al fichero malos. Comprobar la información del fichero malos
+
+find ~ -type d 2> malo
+
 78. Añadir al fichero direc la lista de todos los ficheros ordinarios que cuelguen de /etc. 
+
+find /etc -type f >> direc
+
 79. Añadir al archivo nuevalista el/los nombre/s de el/los fichero/s del directorio PRUEBA que contengan en su nombre la cadena "ai", añadiendo el posible error al fichero malos. 
-80. Sacar por pantalla únicamente el tiempo (buscar comando time) que tarda en ejecutarse el comando who. 
+
+
+
+80. Sacar por pantalla únicamente el tiempo (buscar comando time) que tarda en ejecutarse el comando who.
+
+time who 
+
 81. Sacar por pantalla un listado completo (buscar comando ps) de los procesos que está realizando el usuario root. 
-82. Crear el archivo proceso con los procesos que no tienen ningún terminal asignado. 
+
+ps
+
+82. Crear el archivo proceso con los procesos que no tienen ningún terminal asignado.
+
+touch archivo
+(incompleto)
+
 83. Añadir al fichero anterior la fecha actual y la trayectoria completa del directorio actual.
+
+echo "'date +"%A %D"' - 'pwd'" >>nuevalista
+
 84. Sacar por pantalla el listado de todos los usuarios conectados ordenados por número de proceso asignado. 
+
+ps axu
+
 85. Averiguar cuál es la actividad actual del sistema. Para ello visualice un listado completo del estado de todos los procesos que se están ejecutando en el sistema. 
-86. Obtener un listado con los siguientes datos de los procesos de su shell actual. 
+
+top
+
+86. Obtener un listado con los siguientes datos de los procesos de su shell actual.
+
+ps -e
+
 87. Mostrar cuantos usuarios tiene registrados el sistema (el registro de usuarios está en el archivo /etc/passwd) 
-88. Mostrar cuántos usuarios tiene registrados el sistema y que utilizan el intérprete bash (debe aparecer al final de la línea /bin/bash o similar) 89. Mostrar cuantos usuarios hay conectados 
+
+cat /etc/passwd | wc -l
+
+88. Mostrar cuántos usuarios tiene registrados el sistema y que utilizan el intérprete bash (debe aparecer al final de la línea /bin/bash o similar) 
+
+cat /etc/passwd | grep /bash
+
+89. Mostrar cuantos usuarios hay conectados 
+
+who -q
+
 90. Mostrar las líneas, de un archivo de texto, empiecen por L (mayúscula o minúscula) 
+
+
+
 91. Contar las líneas, del ejemplo anterior 
 
 
